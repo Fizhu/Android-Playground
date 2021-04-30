@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android Playground</string>
     <string name="alarm_manager">Alarm Manager</string>
+    <string name="start_alarm">Start Alarm</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.fizhu.androidplayground
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.fizhu.androidplayground.alarm.AlarmService
 import com.fizhu.androidplayground.databinding.ActivityAlarmBinding
 
 class AlarmActivity : AppCompatActivity() {
@@ -17,6 +19,9 @@ class AlarmActivity : AppCompatActivity() {
     private fun onInit() {
         with(binding) {
             toolbar.setNavigationOnClickListener { finish() }
+            btnStart.setOnClickListener {
+                startService(Intent(this@AlarmActivity, AlarmService::class.java))
+            }
         }
     }
 }
