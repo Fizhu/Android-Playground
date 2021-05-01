@@ -2,7 +2,9 @@ package com.fizhu.androidplayground.alarm
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.core.app.NotificationCompat
 import com.fizhu.androidplayground.R
@@ -22,6 +24,8 @@ object AlarmNotificationUtil {
         val mNotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+        val startMusicIntent = Intent(context, AlarmPlayerReceiver::class.java)
+        val stopMusicIntent = Intent(context, AlarmPlayerStopper::class.java)
         val builder = NotificationCompat.Builder(context, "ChannelId")
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Alarm nya idupppp !!!!!")
@@ -29,6 +33,22 @@ object AlarmNotificationUtil {
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
+            .setContentIntent(
+                PendingIntent.getBroadcast(
+                    context,
+                    110,
+                    startMusicIntent,
+                    0
+                )
+            )
+            .setDeleteIntent(
+                PendingIntent.getBroadcast(
+                    context,
+                    100,
+                    stopMusicIntent,
+                    0
+                )
+            )
 
         // Notification channels are only available in OREO and higher.
         // So, add a check on SDK version.

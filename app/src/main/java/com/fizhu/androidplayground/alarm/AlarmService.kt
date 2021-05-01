@@ -1,11 +1,13 @@
 package com.fizhu.androidplayground.alarm
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -27,24 +29,23 @@ class AlarmService : Service() {
         return null
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun setScheduleNotification() {
         // membuat objek calendar dan inisialisasi parameter waktunya
         val calendar = Calendar.getInstance()
-        val hour = 20
-        val minute = 29
-        val second = 0
+//        val hour = 20
+//        val minute = 29
+//        val second = 0
 
         // lakukan konfigurasi berdasarkan waktu yang sudah ditetapkan sebelumnya
         calendar.apply {
-            set(Calendar.HOUR_OF_DAY, hour)
-            set(Calendar.MINUTE, minute)
-            set(Calendar.SECOND, second)
+            set(Calendar.SECOND, calendar.time.seconds + 15)
         }
 
         // membuat objek intent yang mana akan menjadi target selanjutnya
         // bisa untuk berpindah halaman dengan dan tanpa data
         val intent = Intent(applicationContext, AlarmBroadcastReceiver::class.java)
-        intent.putExtra("validationTime", "20:29:00")
+        intent.putExtra("validationTime", SimpleDateFormat("HH:mm:ss").format(calendar.time))
 
         // membuat objek PendingIntent yang berguna sebagai penampung intent dan aksi yang akan dikerjakan
         val requestCode = 0

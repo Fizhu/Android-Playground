@@ -2,6 +2,7 @@ package com.fizhu.androidplayground
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fizhu.androidplayground.alarm.AlarmService
 import com.fizhu.androidplayground.databinding.ActivityAlarmBinding
@@ -21,6 +22,7 @@ class AlarmActivity : AppCompatActivity() {
             toolbar.setNavigationOnClickListener { finish() }
             btnStart.setOnClickListener {
                 startService(Intent(this@AlarmActivity, AlarmService::class.java))
+                Toast.makeText(this@AlarmActivity, "Alarm will ring in 1 min", Toast.LENGTH_SHORT).show()
             }
         }
     }
