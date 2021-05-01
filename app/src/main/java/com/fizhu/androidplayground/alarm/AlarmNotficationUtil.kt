@@ -23,28 +23,19 @@ object AlarmNotificationUtil {
         // Create a notification manager object.
         val mNotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        val startMusicIntent = Intent(context, AlarmPlayerReceiver::class.java)
+        AlarmMusicControl(context).getInstance()?.playMusic()
         val stopMusicIntent = Intent(context, AlarmPlayerStopper::class.java)
         val builder = NotificationCompat.Builder(context, "ChannelId")
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Alarm nya idupppp !!!!!")
-            .setContentText("Ululululululululuuuuuuuu")
+            .setContentText("Tap to dismiss")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setAutoCancel(true)
+            .setAutoCancel(false)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
-            .setContentIntent(
-                PendingIntent.getBroadcast(
-                    context,
-                    110,
-                    startMusicIntent,
-                    0
-                )
-            )
             .setDeleteIntent(
                 PendingIntent.getBroadcast(
                     context,
-                    100,
+                    0,
                     stopMusicIntent,
                     0
                 )

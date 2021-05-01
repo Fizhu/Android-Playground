@@ -45,7 +45,7 @@ class AlarmService : Service() {
         // membuat objek intent yang mana akan menjadi target selanjutnya
         // bisa untuk berpindah halaman dengan dan tanpa data
         val intent = Intent(applicationContext, AlarmBroadcastReceiver::class.java)
-        intent.putExtra("validationTime", SimpleDateFormat("HH:mm:ss").format(calendar.time))
+//        intent.putExtra("validationTime", SimpleDateFormat("HH:mm:ss").format(calendar.time))
 
         // membuat objek PendingIntent yang berguna sebagai penampung intent dan aksi yang akan dikerjakan
         val requestCode = 0
@@ -58,6 +58,12 @@ class AlarmService : Service() {
         // kita buat alarm yang dapat berfungsi tepat waktu dan juga walaupun dalam kondisi HP idle
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.RTC_WAKEUP,
+                calendar.timeInMillis,
+                pendingIntent
+            )
+        } else {
+            alarmManager.setExact(
                 AlarmManager.RTC_WAKEUP,
                 calendar.timeInMillis,
                 pendingIntent

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPlayground">
-        <activity android:name=".AlarmActivity"/>
+        <activity android:name=".AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,21 +27,15 @@
         <receiver
             android:name=".alarm.AlarmBroadcastReceiver"
             android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.TIME_SET" />
-            </intent-filter>
-        </receiver>
+            android:exported="false" />
         <receiver
             android:name=".alarm.AlarmPlayerReceiver"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:exported="false" />
         <receiver
             android:name=".alarm.AlarmPlayerStopper"
             android:enabled="true"
-            android:exported="false">
-        </receiver>
+            android:exported="false" />
     </application>
 
 </manifest>
