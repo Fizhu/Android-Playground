@@ -2,12 +2,15 @@ package com.fizhu.androidplayground.alarm
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
+import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import java.text.SimpleDateFormat
+import androidx.core.app.NotificationCompat
+import com.fizhu.androidplayground.MainActivity
+import com.fizhu.androidplayground.R
 import java.util.*
 
 /**
@@ -18,10 +21,10 @@ class AlarmService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        setScheduleNotification()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        startForeground(1, createNotificationAlarm(this))
         return START_STICKY
     }
 
@@ -69,5 +72,30 @@ class AlarmService : Service() {
                 pendingIntent
             )
         }
+    }
+
+    private fun createNotificationAlarm(context: Context): Notification {
+
+        setScheduleNotification()
+
+        val notificationIntent = Intent(context, MainActivity::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP
+                or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+
+        return NotificationCompat.Builder(context, "ChannelId")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Android Playground Reminder")
+            .setContentText("Android Playground Reminder currently active")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(false)
+            .setDefaults(NotificationCompat.DEFAULT_ALL)
+            .setContentIntent(
+                PendingIntent.getBroadcast(
+                    context,
+                    1,
+                    notificationIntent,
+                    0
+                )
+            ).build()
     }
 }

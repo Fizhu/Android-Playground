@@ -10,6 +10,6 @@ import android.content.Intent
  */
 class AlarmPlayerStopper : BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
-        AlarmMediaPlayer.stopMusic()
+        p0?.stopService(Intent(p0, AlarmRingingService::class.java))
     }
 }
