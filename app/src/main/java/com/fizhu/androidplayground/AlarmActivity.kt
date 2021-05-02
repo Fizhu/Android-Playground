@@ -22,7 +22,7 @@ class AlarmActivity : AppCompatActivity() {
             toolbar.setNavigationOnClickListener { finish() }
             btnStart.setOnClickListener {
                 startService(Intent(this@AlarmActivity, AlarmService::class.java))
-                Toast.makeText(this@AlarmActivity, "Alarm will ring in 1 min", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AlarmActivity, "Alarm will rang in 15 sec", Toast.LENGTH_SHORT).show()
             }
         }
     }
