@@ -23,7 +23,7 @@ object AlarmNotificationUtil {
         // Create a notification manager object.
         val mNotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        AlarmMusicControl(context).getInstance()?.playMusic()
+        AlarmMediaPlayer.playMusic(context)
         val stopMusicIntent = Intent(context, AlarmPlayerStopper::class.java)
         val builder = NotificationCompat.Builder(context, "ChannelId")
             .setSmallIcon(R.mipmap.ic_launcher)
