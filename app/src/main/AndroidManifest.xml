@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <service
             android:name=".alarm.AlarmService"
             android:enabled="true"
@@ -35,7 +34,6 @@
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
-
         <receiver
             android:name=".alarm.AlarmBroadcastReceiver"
             android:enabled="true"

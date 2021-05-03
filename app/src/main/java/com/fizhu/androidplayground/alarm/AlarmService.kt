@@ -9,6 +9,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
+import com.fizhu.androidplayground.App
+import com.fizhu.androidplayground.App.Companion.CHANNEL_ID
 import com.fizhu.androidplayground.MainActivity
 import com.fizhu.androidplayground.R
 import java.util.*
@@ -82,7 +84,7 @@ class AlarmService : Service() {
         notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP
                 or Intent.FLAG_ACTIVITY_SINGLE_TOP)
 
-        return NotificationCompat.Builder(context, "ChannelId")
+        return NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Android Playground Reminder")
             .setContentText("Android Playground Reminder currently active")

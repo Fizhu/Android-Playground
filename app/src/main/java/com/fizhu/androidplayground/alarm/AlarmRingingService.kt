@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.os.Vibrator
 import androidx.core.app.NotificationCompat
+import com.fizhu.androidplayground.App.Companion.CHANNEL_ID
 import com.fizhu.androidplayground.MainActivity
 import com.fizhu.androidplayground.R
 
@@ -46,7 +47,7 @@ class AlarmRingingService : Service() {
                 or Intent.FLAG_ACTIVITY_SINGLE_TOP)
 
         val stopMusicIntent = Intent(context, AlarmPlayerStopper::class.java)
-        return NotificationCompat.Builder(context, "ChannelId")
+        return NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)
             .setContentTitle("Alarm nya idupppp !!!!!")
             .setContentText("Tap to dismiss")
