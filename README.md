@@ -6,3 +6,5 @@
 - Alarm Manager
 - Foreground Services
 - Notif Builder
+- Media Player
+- Broadcast Manager
