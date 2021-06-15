@@ -18,6 +18,13 @@
             android:textAllCaps="false"
             android:text="@string/alarm_manager" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_upload_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="@string/upload" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

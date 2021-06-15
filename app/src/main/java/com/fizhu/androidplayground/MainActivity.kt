@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.fizhu.androidplayground.databinding.ActivityMainBinding
+import com.fizhu.androidplayground.uploadfile.UploadFileActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -17,7 +18,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun onInit() {
         with(binding) {
-            btnAlarmManager.setOnClickListener { startActivity(Intent(this@MainActivity, AlarmActivity::class.java)) }
+            btnAlarmManager.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@MainActivity,
+                        AlarmActivity::class.java
+                    )
+                )
+            }
+            btnUploadFile.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@MainActivity,
+                        UploadFileActivity::class.java
+                    )
+                )
+            }
         }
     }
 }
