@@ -10,6 +10,11 @@ import com.fizhu.androidplayground.databinding.ActivityDeeplinkBinding
  * Created by fizhu on 23 June 2021
  * https://github.com/Fizhu
  */
+
+/**
+ * For now we only handle deeplinking from https/androidplayground.com/deeplink
+ */
+
 class DeepLinkActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDeeplinkBinding
 
