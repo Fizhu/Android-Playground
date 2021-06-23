@@ -27,7 +27,8 @@
 
                 <data
                     android:host="androidplayground.com"
-                    android:scheme="https" />
+                    android:scheme="https"
+                    android:pathPrefix="/deeplink"/>
             </intent-filter>
         </activity>
         <activity android:name=".uploadfile.UploadFileActivity" />
