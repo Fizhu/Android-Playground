@@ -1,4 +1,4 @@
-package com.fizhu.androidplayground.alarm
+package com.fizhu.androidplayground.features.alarm
 
 import android.content.Context
 import android.media.AudioAttributes

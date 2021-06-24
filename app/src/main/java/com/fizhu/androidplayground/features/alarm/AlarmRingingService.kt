@@ -1,4 +1,4 @@
-package com.fizhu.androidplayground.alarm
+package com.fizhu.androidplayground.features.alarm
 
 import android.app.Notification
 import android.app.PendingIntent

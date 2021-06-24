@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.fizhu.androidplayground.databinding.ActivityMainBinding
-import com.fizhu.androidplayground.uploadfile.UploadFileActivity
+import com.fizhu.androidplayground.features.uploadfile.UploadFileActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

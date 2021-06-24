@@ -1,4 +1,4 @@
-package com.fizhu.androidplayground.deeplink
+package com.fizhu.androidplayground.features.deeplink
 
 import android.content.Intent
 import android.net.Uri

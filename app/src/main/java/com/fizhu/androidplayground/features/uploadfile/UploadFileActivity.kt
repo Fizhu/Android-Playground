@@ -1,4 +1,4 @@
-package com.fizhu.androidplayground.uploadfile
+package com.fizhu.androidplayground.features.uploadfile
 
 import android.Manifest
 import android.app.Activity

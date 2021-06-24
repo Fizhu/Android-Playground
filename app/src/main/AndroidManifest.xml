@@ -18,7 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPlayground">
-        <activity android:name=".deeplink.DeepLinkActivity">
+        <activity android:name=".features.deeplink.DeepLinkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -31,7 +31,7 @@
                     android:pathPrefix="/deeplink"/>
             </intent-filter>
         </activity>
-        <activity android:name=".uploadfile.UploadFileActivity" />
+        <activity android:name=".features.uploadfile.UploadFileActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -42,18 +42,18 @@
         </activity>
 
         <service
-            android:name=".alarm.AlarmService"
+            android:name=".features.alarm.AlarmService"
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
         <service
-            android:name=".alarm.AlarmRingingService"
+            android:name=".features.alarm.AlarmRingingService"
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false" />
 
         <receiver
-            android:name=".alarm.AlarmBroadcastReceiver"
+            android:name=".features.alarm.AlarmBroadcastReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -61,7 +61,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".alarm.AlarmPlayerStopper"
+            android:name=".features.alarm.AlarmPlayerStopper"
             android:enabled="true"
             android:exported="false" />
     </application>

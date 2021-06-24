@@ -1,4 +1,4 @@
-package com.fizhu.androidplayground.uploadfile
+package com.fizhu.androidplayground.features.uploadfile
 
 import android.annotation.SuppressLint
 import android.content.ContentUris

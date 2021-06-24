@@ -1,4 +1,4 @@
-package com.fizhu.androidplayground.alarm
+package com.fizhu.androidplayground.features.alarm
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
