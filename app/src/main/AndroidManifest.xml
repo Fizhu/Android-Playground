@@ -27,10 +27,11 @@
 
                 <data
                     android:host="androidplayground.com"
-                    android:scheme="https"
-                    android:pathPrefix="/deeplink"/>
+                    android:pathPrefix="/deeplink"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.texttospeech.TextToSpeechActivity" />
         <activity android:name=".features.uploadfile.UploadFileActivity" />
         <activity android:name=".features.alarm.AlarmActivity" />
         <activity android:name=".MainActivity">
@@ -65,5 +66,11 @@
             android:enabled="true"
             android:exported="false" />
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
 
 </manifest>
