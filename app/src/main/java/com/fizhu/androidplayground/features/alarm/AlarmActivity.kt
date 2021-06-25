@@ -1,10 +1,9 @@
-package com.fizhu.androidplayground
+package com.fizhu.androidplayground.features.alarm
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.fizhu.androidplayground.features.alarm.AlarmService
 import com.fizhu.androidplayground.databinding.ActivityAlarmBinding
 
 class AlarmActivity : AppCompatActivity() {

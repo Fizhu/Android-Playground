@@ -3,11 +3,28 @@ package com.fizhu.androidplayground
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fizhu.androidplayground.databinding.ActivityMainBinding
+import com.fizhu.androidplayground.features.alarm.AlarmActivity
+import com.fizhu.androidplayground.features.texttospeech.TextToSpeechActivity
 import com.fizhu.androidplayground.features.uploadfile.UploadFileActivity
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
+    private val mainMenuAdapter by lazy { MainMenuAdapter { goto(it) } }
+
+    private val listFeatures = listOf(
+        AlarmActivity::class.java,
+        UploadFileActivity::class.java,
+        TextToSpeechActivity::class.java
+    )
+
+    private val listFeatureTitle = listOf(
+        R.string.alarm_manager,
+        R.string.upload,
+        R.string.text_to_speech
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,22 +35,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun onInit() {
         with(binding) {
-            btnAlarmManager.setOnClickListener {
-                startActivity(
-                    Intent(
-                        this@MainActivity,
-                        AlarmActivity::class.java
-                    )
-                )
+            rv.apply {
+                layoutManager = LinearLayoutManager(this@MainActivity)
+                setHasFixedSize(true)
+                adapter = mainMenuAdapter
             }
-            btnUploadFile.setOnClickListener {
-                startActivity(
-                    Intent(
-                        this@MainActivity,
-                        UploadFileActivity::class.java
-                    )
-                )
-            }
+            mainMenuAdapter.setData(listFeatureTitle)
         }
     }
+
+    private fun goto(pos: Int) {
+        startActivity(Intent(this, listFeatures[pos]))
+    }
+
 }

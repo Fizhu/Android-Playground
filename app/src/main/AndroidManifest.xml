@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".features.uploadfile.UploadFileActivity" />
-        <activity android:name=".AlarmActivity" />
+        <activity android:name=".features.alarm.AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
