@@ -7,4 +7,6 @@
     <string name="speech_to_text">Speech To Text</string>
     <string name="select_file">Select File</string>
     <string name="input_text">Type Something</string>
+    <string name="indonesia">Indonesia</string>
+    <string name="english">English</string>
 </resources>

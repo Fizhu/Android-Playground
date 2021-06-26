@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fizhu.androidplayground.databinding.ActivityMainBinding
 import com.fizhu.androidplayground.features.alarm.AlarmActivity
+import com.fizhu.androidplayground.features.speechtotext.SpeechToTextActivity
 import com.fizhu.androidplayground.features.texttospeech.TextToSpeechActivity
 import com.fizhu.androidplayground.features.uploadfile.UploadFileActivity
 
@@ -17,13 +18,15 @@ class MainActivity : AppCompatActivity() {
     private val listFeatures = listOf(
         AlarmActivity::class.java,
         UploadFileActivity::class.java,
-        TextToSpeechActivity::class.java
+        TextToSpeechActivity::class.java,
+        SpeechToTextActivity::class.java
     )
 
     private val listFeatureTitle = listOf(
         R.string.alarm_manager,
         R.string.upload,
-        R.string.text_to_speech
+        R.string.text_to_speech,
+        R.string.speech_to_text
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

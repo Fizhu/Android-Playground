@@ -31,6 +31,7 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".features.speechtotext.SpeechToTextActivity" />
         <activity android:name=".features.texttospeech.TextToSpeechActivity" />
         <activity android:name=".features.uploadfile.UploadFileActivity" />
         <activity android:name=".features.alarm.AlarmActivity" />
