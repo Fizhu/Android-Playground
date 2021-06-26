@@ -35,7 +35,6 @@ class SpeechToTextActivity : AppCompatActivity() {
                     binding.button2.id -> ENGLISH
                     else -> Locale.getDefault()
                 }
-                toast(languange.toString())
             }
             til.setEndIconOnClickListener {
                 startSTT()
@@ -56,7 +55,7 @@ class SpeechToTextActivity : AppCompatActivity() {
     private fun startSTT() {
         val i = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, languange)
+        i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, languange.toString())
         i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak Now !")
         try {
             sttResultLauncher.launch(i)
@@ -66,7 +65,7 @@ class SpeechToTextActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val BAHASA = Locale("in", "ID")
+        private val BAHASA = Locale("id", "ID")
         private val ENGLISH = Locale.ENGLISH
     }
 
