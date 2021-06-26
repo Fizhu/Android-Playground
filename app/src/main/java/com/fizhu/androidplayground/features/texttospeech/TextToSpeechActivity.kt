@@ -19,6 +19,7 @@ class TextToSpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var binding: ActivityTtsBinding
     private lateinit var textToSpeech: TextToSpeech
+    private var languange = BAHASA
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +29,16 @@ class TextToSpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun onInit() {
-        textToSpeech = TextToSpeech(this, this)
+        initTTS(languange, false)
         with(binding) {
             toolbar.setNavigationOnClickListener { finish() }
+            toogle.addOnButtonCheckedListener { _, checkedId, _ ->
+                when (checkedId) {
+                    binding.button1.id -> initTTS(BAHASA, true)
+                    binding.button2.id -> initTTS(ENGLISH, true)
+                    else -> initTTS(Locale.getDefault(), true)
+                }
+            }
             btnSpeak.setOnClickListener {
                 val text = binding.et.text.toString()
                 if (text.isNotEmpty() && text != "") {
@@ -42,9 +50,15 @@ class TextToSpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
+    private fun initTTS(lang: Locale, isRestart: Boolean) {
+        if (isRestart) textToSpeech.shutdown()
+        languange = lang
+        textToSpeech = TextToSpeech(this, this)
+    }
+
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = textToSpeech.setLanguage(Locale.US)
+            val result = textToSpeech.setLanguage(languange)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "onInit: The Language specified is not supported!")
                 toast("Failed to initialize TextToSpeech")
@@ -93,6 +107,11 @@ class TextToSpeechActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         textToSpeech.stop()
         textToSpeech.shutdown()
         super.onDestroy()
+    }
+
+    companion object {
+        private val BAHASA = Locale("id", "ID")
+        private val ENGLISH = Locale.ENGLISH
     }
 
 }
