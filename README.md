@@ -8,3 +8,5 @@
 - Notif Builder
 - Media Player
 - Broadcast Manager
+- Text To Speech
+- Speech To Text
