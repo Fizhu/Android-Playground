@@ -5,6 +5,7 @@
     <string name="upload">Upload File</string>
     <string name="text_to_speech">Text To Speech</string>
     <string name="speech_to_text">Speech To Text</string>
+    <string name="webview">Webview</string>
     <string name="select_file">Select File</string>
     <string name="input_text">Type Something</string>
     <string name="indonesia">Indonesia</string>

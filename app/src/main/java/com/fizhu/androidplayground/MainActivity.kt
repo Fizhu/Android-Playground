@@ -9,6 +9,7 @@ import com.fizhu.androidplayground.features.alarm.AlarmActivity
 import com.fizhu.androidplayground.features.speechtotext.SpeechToTextActivity
 import com.fizhu.androidplayground.features.texttospeech.TextToSpeechActivity
 import com.fizhu.androidplayground.features.uploadfile.UploadFileActivity
+import com.fizhu.androidplayground.features.webview.WebviewActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,14 +20,16 @@ class MainActivity : AppCompatActivity() {
         AlarmActivity::class.java,
         UploadFileActivity::class.java,
         TextToSpeechActivity::class.java,
-        SpeechToTextActivity::class.java
+        SpeechToTextActivity::class.java,
+        WebviewActivity::class.java
     )
 
     private val listFeatureTitle = listOf(
         R.string.alarm_manager,
         R.string.upload,
         R.string.text_to_speech,
-        R.string.speech_to_text
+        R.string.speech_to_text,
+        R.string.webview
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
