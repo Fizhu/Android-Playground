@@ -26,7 +26,7 @@ class AlarmRingingService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 
-        val musicUrl = "https://ia801804.us.archive.org/11/items/MisharyRasyidPerJuz/Mishary/01.mp3"
+        val musicUrl = "https://ia803102.us.archive.org/29/items/acidplanet-audio-01413548/01413548.mp3"
         AlarmMediaPlayer.playMusicFromUrl(this, musicUrl)
 
         val pattern = longArrayOf(0, 100, 1000, 1000, 1000, 1000, 1000, 1000)
